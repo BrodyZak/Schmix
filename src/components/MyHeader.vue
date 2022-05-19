@@ -1,7 +1,7 @@
 <template>
     <header>
         <img src="../assets/logo.png" alt="">
-        <a href="https://github.com/" target="_blank">
+        <a href="https://github.com/BrodyZak/Schmix" target="_blank">
             <img src="../assets/GitHub.png" class ="github"> 
         </a> 
     </header>

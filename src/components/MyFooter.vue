@@ -8,8 +8,7 @@
 <style scoped>
 
 div{
-    position: absolute; 
-    left: 25px; 
+    position: center;  
 }
 
 </style>

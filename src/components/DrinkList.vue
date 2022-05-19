@@ -1,20 +1,20 @@
 <template>
     <div v-for="drink in drinks" :key="drink.id">
-        <!-- capital letter is the object -->
-        <Drink :drink="drink"/>
+        <DrinkCard :drink="drink"/>
     </div>
 </template>
 
 <script>
-import Drink from './Drink'
+// TODO - format all drink cards into a horizontally scrolling list 
+import DrinkCard from './DrinkCard'
 
 export default {
-    name: 'Drinks',
+    name: 'DrinkList',
     props: {
         drinks: Array
     },
     components: {
-        Drink
+        DrinkCard
     }
 }
 </script>

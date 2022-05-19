@@ -1,57 +1,66 @@
 <template>
-  <div> 
     <MyHeader/>
-    <CheckForm/>
-    <MyFooter/> 
-  </div>
+    <div v-if="ingredients && ingredients.length > 0">
+        <span v-for="(ingredient, index) in ingredients" :key="index">
+          <input :id="ingredient.strIngredient1" :value="ingredient.strIngredient1" type="checkbox" v-model='filters'/>
+          <label :for="ingredient.strIngredient1">{{ingredient.strIngredient1}}</label>
+        </span>
+    </div>
+    <button @click=getDrinks()>Get Drinks</button>
+    <div v-if="drinks && drinks.length > 0">
+       <DrinkCard  :drink="drink" v-for = "drink in drinks" :key ="drink.idDrink"/>  
+    </div>
+  <MyFooter/> 
 </template>
 
-<script>
+<script> 
 import MyHeader from './components/MyHeader'
-import CheckForm from './components/CheckForm'
 import MyFooter from './components/MyFooter'
+import DrinkCard from './components/DrinkCard'
 
 export default {
   name: 'App',
   components: {
     MyHeader, 
-    CheckForm,
-    MyFooter
+    MyFooter,
+    DrinkCard 
   },
   data(){
     return {
-      drinks: [], 
-      showIngredients: true 
+      drinks: [],  
+      showIngredients: true,
+      ingredients: [] ,
+      filters: [] 
     }
   },
+  async mounted(){
+    await this.getIngredients()
+  },
   methods:{
-    // grabs data from addIngredient component's $emit() ;
     addDrink(drink){
       console.log("save task pressed")
       console.log(drink)
-    }, 
-    mix(){
-      this.showIngredients = !this.showIngredients
+    },
+    getOptions(){
+      return {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com',
+          'X-RapidAPI-Key': process.env.VUE_APP_API_KEY
+        }
+      }
+    },
+     async getDrinks(){
+        const res = await fetch(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${this.filters.join(',')}`, this.getOptions())
+        console.log("response from call: ", res) 
+        const data = await res.json()
+        this.drinks =  data.drinks 
+    },  
+    async getIngredients(){
+      const res = await fetch('https://the-cocktail-db.p.rapidapi.com/list.php?i=list', this.getOptions())
+      const data = await res.json() 
+      this.ingredients = data.drinks
     }
-  },
-  created(){
-    this.drinks = [
-      {
-        id: 1, 
-        name: 'Screwdriver',
-        ingredients: 'Vodka, Orange Juice'
-      },
-      {
-        id: 2, 
-        name: 'Whiskey Special',
-        ingredients: 'Bourbon, Simple Syrup, Lemon, Mint'
-      },    
-      {
-        id: 3, 
-        name: 'Gin and Tonic',
-        ingredients: 'Gin, Tonic'
-      }, 
-    ]
   }
 }
 </script>
