@@ -1,10 +1,11 @@
 <template>
     <MyHeader/>
+    <input type="text" v-model="searchIngredients" placeholder="Search">
     <div v-if="ingredients && ingredients.length > 0">
-        <span v-for="(ingredient, index) in ingredients" :key="index">
-          <input :id="ingredient.strIngredient1" :value="ingredient.strIngredient1" type="checkbox" v-model='filters'/>
-          <label :for="ingredient.strIngredient1">{{ingredient.strIngredient1}}</label>
-        </span>
+      <span v-for="(ingredient, index) in filteredIngredients" :key="index">
+        <input :id="ingredient.strIngredient1" :value="ingredient.strIngredient1" type="checkbox" v-model='filters'/>
+        <label :for="ingredient.strIngredient1">{{ingredient.strIngredient1}}</label>
+      </span>
     </div>
     <button @click=getDrinks()>Get Drinks</button>
     <div v-if="drinks && drinks.length > 0">
@@ -30,7 +31,15 @@ export default {
       drinks: [],  
       showIngredients: true,
       ingredients: [] ,
-      filters: [] 
+      filters: [],
+      searchIngredients: ""  
+    }
+  },
+  computed: {
+    filteredIngredients: function(){
+      return this.ingredients.filter((ingredient) =>{
+        return ingredient.strIngredient1.match(this.searchIngredients)
+      })
     }
   },
   async mounted(){
