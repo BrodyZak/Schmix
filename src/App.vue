@@ -38,7 +38,7 @@ export default {
   computed: {
     filteredIngredients: function(){
       return this.ingredients.filter((ingredient) =>{
-        return ingredient.strIngredient1.match(this.searchIngredients)
+        return ingredient.strIngredient1.toLowerCase().match(this.searchIngredients.toLowerCase())
       })
     }
   },
