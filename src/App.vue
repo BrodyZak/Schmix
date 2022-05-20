@@ -19,18 +19,10 @@
         </section>
       </vue-horizontal> 
     </div>
-
-  <MyFooter/> 
 </template>
 
 <script> 
-// [ ] - need to make all drink cards the same size 
-// [ ] - need to replace logo image with HTML 
-// [ ] - need to replace github image with HTML 
-// [ ] - need to improve general CSS 
-
 import MyHeader from './components/MyHeader'
-import MyFooter from './components/MyFooter'
 import DrinkCard from './components/DrinkCard'
 import VueHorizontal from 'vue-horizontal'
 
@@ -38,7 +30,6 @@ export default {
   name: 'App',
   components: {
     MyHeader, 
-    MyFooter,
     DrinkCard,
     VueHorizontal
   },
