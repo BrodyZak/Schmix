@@ -9,7 +9,11 @@
     </div>
     <button @click=getDrinks()>Get Drinks</button>
     <div v-if="drinks && drinks.length > 0">
-       <DrinkCard  :drink="drink" v-for = "drink in drinks" :key ="drink.idDrink"/>  
+      <vue-horizontal>
+        <section v-for = "drink in drinks" :key="drink.idDrink">
+          <DrinkCard  :drink="drink"/> 
+        </section>
+      </vue-horizontal> 
     </div>
   <MyFooter/> 
 </template>
@@ -18,13 +22,15 @@
 import MyHeader from './components/MyHeader'
 import MyFooter from './components/MyFooter'
 import DrinkCard from './components/DrinkCard'
+import VueHorizontal from 'vue-horizontal'
 
 export default {
   name: 'App',
   components: {
     MyHeader, 
     MyFooter,
-    DrinkCard 
+    DrinkCard,
+    VueHorizontal
   },
   data(){
     return {
