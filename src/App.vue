@@ -1,16 +1,25 @@
 <template>
     <MyHeader/>
+
     <input type="text" v-model="searchIngredients" placeholder="Search">
+
     <div v-if="ingredients && ingredients.length > 0">
       <span v-for="(ingredient, index) in filteredIngredients" :key="index">
         <input :id="ingredient.strIngredient1" :value="ingredient.strIngredient1" type="checkbox" v-model='filters'/>
         <label :for="ingredient.strIngredient1">{{ingredient.strIngredient1}}</label>
       </span>
     </div>
+
     <button @click=getDrinks()>Get Drinks</button>
+
     <div v-if="drinks && drinks.length > 0">
-       <DrinkCard  :drink="drink" v-for = "drink in drinks" :key ="drink.idDrink"/>  
+      <vue-horizontal responsive class="horizontal" :displacement="0.8">
+        <section v-for = "drink in drinks" :key="drink.idDrink">
+          <DrinkCard :drink="drink"/> 
+        </section>
+      </vue-horizontal> 
     </div>
+
   <MyFooter/> 
 </template>
 
@@ -18,13 +27,15 @@
 import MyHeader from './components/MyHeader'
 import MyFooter from './components/MyFooter'
 import DrinkCard from './components/DrinkCard'
+import VueHorizontal from 'vue-horizontal'
 
 export default {
   name: 'App',
   components: {
     MyHeader, 
     MyFooter,
-    DrinkCard 
+    DrinkCard,
+    VueHorizontal
   },
   data(){
     return {
@@ -75,18 +86,6 @@ export default {
 </script>
 
 <style>
-.styledbtn {
-  display: inline-block; 
-  background: #000;
-  color: #fff; 
-  border: none; 
-  padding: 10px 20px; 
-  margin: 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
