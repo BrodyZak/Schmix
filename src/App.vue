@@ -24,6 +24,11 @@
 </template>
 
 <script> 
+// [ ] - need to make all drink cards the same size 
+// [ ] - need to replace logo image with HTML 
+// [ ] - need to replace github image with HTML 
+// [ ] - need to improve general CSS 
+
 import MyHeader from './components/MyHeader'
 import MyFooter from './components/MyFooter'
 import DrinkCard from './components/DrinkCard'
@@ -92,6 +97,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 5px;
 }
 </style>

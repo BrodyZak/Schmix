@@ -2,18 +2,16 @@
     <div class="drinkCard">
         <h3>{{name}}</h3>
         <img :src="image" id="drinkImg">
-        <ul>
-            <li>{{measure1}} {{ingredient1}}</li>
-            <li>{{measure2}} {{ingredient2}}</li>
-            <li>{{measure3}} {{ingredient3}}</li>
-            <li>{{measure4}} {{ingredient4}}</li>
-            <li>{{measure5}} {{ingredient5}}</li>
-            <li>{{measure6}} {{ingredient6}}</li>
-            <li>{{measure7}} {{ingredient7}}</li>
-            <li>{{measure8}} {{ingredient8}}</li>
-            <li>{{measure9}} {{ingredient9}}</li>
-            <li>{{measure10}} {{ingredient10}}</li>
-        </ul>
+        <li>{{measure1}} {{ingredient1}}</li>
+        <li>{{measure2}} {{ingredient2}}</li>
+        <li>{{measure3}} {{ingredient3}}</li>
+        <li>{{measure4}} {{ingredient4}}</li>
+        <li>{{measure5}} {{ingredient5}}</li>
+        <li>{{measure6}} {{ingredient6}}</li>
+        <li>{{measure7}} {{ingredient7}}</li>
+        <li>{{measure8}} {{ingredient8}}</li>
+        <li>{{measure9}} {{ingredient9}}</li>
+        <li>{{measure10}} {{ingredient10}}</li>
         <p>
          {{instructions}}       
         </p>
@@ -80,20 +78,31 @@ export default{
 }
 </script>
 
-<style scope>
-.drinkCard {
+<style scoped>
+.drinkCard { 
+    background: #FAF9F6;  
+    height: 600px; 
     width: 300px; 
-    margin: 15px; 
-    border: 1px solid black; 
+    margin: 10px; 
+    border-radius: 10px; 
+    box-shadow: 5px 5px 10px;    
 }
 img {
+    border-radius: 5px;
     width: 100%;
-    max-width: 175px;
+    max-width: 200px;
     height: 100%;
-    max-height: 175px; 
+    max-height: 200px; 
+    padding-bottom: 10px; 
 }
 li{
-    list-style-type: none;  
- 
+    list-style-type: none; 
+}
+h3{
+    padding-top: 10px; 
+}
+p{
+    padding-top:5px;
+    margin: 5px; 
 }
 </style>
