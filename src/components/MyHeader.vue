@@ -27,6 +27,5 @@ a:visited{
 header{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
 }
 </style>

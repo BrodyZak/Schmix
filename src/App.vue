@@ -1,7 +1,8 @@
 <template>
     <MyHeader/>
 
-    <input type="text" v-model="searchIngredients" placeholder="Search">
+    <input class="filter" type="text" v-model="searchIngredients" placeholder="Filter">
+    <button class="styleBtn" @click=getDrinks()>Get Drinks</button>
 
     <div v-if="ingredients && ingredients.length > 0">
       <span v-for="(ingredient, index) in filteredIngredients" :key="index">
@@ -9,8 +10,6 @@
         <label :for="ingredient.strIngredient1">{{ingredient.strIngredient1}}</label>
       </span>
     </div>
-
-    <button @click=getDrinks()>Get Drinks</button>
 
     <div v-if="drinks && drinks.length > 0">
       <vue-horizontal responsive class="horizontal" :displacement="0.8">
@@ -88,5 +87,30 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.filter{
+  width: 30%; 
+  margin-bottom: 20px; 
+  height: 30px; 
+  border-radius: 5px; 
+  outline: 0; 
+  border: 1px solid grey; 
+  background-color: #f5f5f5;
+}
+span{
+  width: 85%; 
+  padding: 5px; 
+}
+.styleBtn{
+  margin: 5px; 
+  height: 35px; 
+  width: 75px; 
+  border-radius: 5px; 
+  outline: 0; 
+  border: 1px solid grey; 
+  background-color: #f5f5f5;
+}
+.styleBtn:hover{
+
 }
 </style>
