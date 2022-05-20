@@ -12,9 +12,8 @@
         <li>{{measure8}} {{ingredient8}}</li>
         <li>{{measure9}} {{ingredient9}}</li>
         <li>{{measure10}} {{ingredient10}}</li>
-        <p>
-         {{instructions}}       
-        </p>
+        
+        <p>{{instructions}}</p>
     </div>
 </template>
 

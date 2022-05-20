@@ -12,6 +12,10 @@ export default {
 </script>
 
 <style scoped>
+header{
+    display: flex;
+    justify-content: space-between;
+}
 h1{
     color: black; 
 }
@@ -23,9 +27,5 @@ a:hover{
 }
 a:visited{
     color:black;
-}
-header{
-    display: flex;
-    justify-content: space-between;
 }
 </style>

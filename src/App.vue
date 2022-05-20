@@ -18,11 +18,14 @@
         </section>
       </vue-horizontal> 
     </div>
+
+    <myFooter/> 
 </template>
 
 <script> 
 import MyHeader from './components/MyHeader'
 import DrinkCard from './components/DrinkCard'
+import myFooter from './components/MyFooter' 
 import VueHorizontal from 'vue-horizontal'
 
 export default {
@@ -30,6 +33,7 @@ export default {
   components: {
     MyHeader, 
     DrinkCard,
+    myFooter,
     VueHorizontal
   },
   data(){
@@ -82,11 +86,15 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: tahoma, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+span{
+  width: 80%; 
+  padding: 5px; 
 }
 .filter{
   width: 30%; 
@@ -96,10 +104,6 @@ export default {
   outline: 0; 
   border: 1px solid grey; 
   background-color: #f5f5f5;
-}
-span{
-  width: 85%; 
-  padding: 5px; 
 }
 .styleBtn{
   margin: 5px; 
@@ -111,6 +115,6 @@ span{
   background-color: #f5f5f5;
 }
 .styleBtn:hover{
-
+  filter:brightness(90%); 
 }
 </style>

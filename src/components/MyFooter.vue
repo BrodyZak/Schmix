@@ -1,14 +1,12 @@
 <template>
-<div>
-    <p>Alpha Version</p>
-    <a href="https://www.flaticon.com/free-icons/drink" title="drink icons">Drink icon created by Freepik</a>
-</div>
+    <div>
+        <p>Version 1</p>
+    </div>
 </template>
 
 <style scoped>
-
 div{
-    position: center;  
+    position: center; 
+    color: grey;  
 }
-
 </style>
