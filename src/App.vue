@@ -36,7 +36,7 @@ export default {
     }
   },
   computed: {
-    filteredIngredients: function(){
+    filteredIngredients(){
       return this.ingredients.filter((ingredient) =>{
         return ingredient.strIngredient1.toLowerCase().match(this.searchIngredients.toLowerCase())
       })
