@@ -1,5 +1,5 @@
 <template>
-    <MyHeader/>
+    <AppHeader/>
 
     <input class="filter" type="text" v-model="searchIngredients" placeholder="Filter">
     <button class="styleBtn" @click=getDrinks()>Get Drinks</button>
@@ -11,30 +11,22 @@
       </span>
     </div>
 
-    <div v-if="drinks && drinks.length > 0">
-      <vue-horizontal responsive class="horizontal" :displacement="0.8">
-        <section v-for = "drink in drinks" :key="drink.idDrink">
-          <DrinkCard :drink="drink"/> 
-        </section>
-      </vue-horizontal> 
-    </div>
+    <DrinkList :drinks="drinks"/> 
 
-    <myFooter/> 
+    <AppFooter/> 
 </template>
 
 <script> 
-import MyHeader from './components/MyHeader'
-import DrinkCard from './components/DrinkCard'
-import myFooter from './components/MyFooter' 
-import VueHorizontal from 'vue-horizontal'
+import AppHeader from './components/AppHeader'
+import AppFooter from './components/AppFooter'
+import DrinkList from './components/DrinkList' 
 
 export default {
   name: 'App',
   components: {
-    MyHeader, 
-    DrinkCard,
-    myFooter,
-    VueHorizontal
+    AppHeader, 
+    AppFooter,
+    DrinkList,
   },
   data(){
     return {
@@ -56,10 +48,6 @@ export default {
     await this.getIngredients()
   },
   methods:{
-    addDrink(drink){
-      console.log("save task pressed")
-      console.log(drink)
-    },
     getOptions(){
       return {
         method: 'GET',

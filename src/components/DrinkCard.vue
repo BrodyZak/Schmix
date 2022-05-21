@@ -2,6 +2,7 @@
     <div class="drinkCard">
         <h3>{{name}}</h3>
         <img :src="image" id="drinkImg">
+
         <li v-if="ingredient1">{{measure1}} {{ingredient1}}</li>
         <li v-if="ingredient2">{{measure2}} {{ingredient2}}</li>
         <li v-if="ingredient3">{{measure3}} {{ingredient3}}</li>
@@ -19,8 +20,9 @@
 
 <script>
 export default{
-    // im gonna IMPROOOOOOOVE
     name: "DrinkCard",
+    components: {
+    }, 
     props: {
         drink: Object
     },
