@@ -2,23 +2,24 @@
     <div class="drinkCard">
         <h3>{{name}}</h3>
         <img :src="image" id="drinkImg">
-        <li>{{measure1}} {{ingredient1}}</li>
-        <li>{{measure2}} {{ingredient2}}</li>
-        <li>{{measure3}} {{ingredient3}}</li>
-        <li>{{measure4}} {{ingredient4}}</li>
-        <li>{{measure5}} {{ingredient5}}</li>
-        <li>{{measure6}} {{ingredient6}}</li>
-        <li>{{measure7}} {{ingredient7}}</li>
-        <li>{{measure8}} {{ingredient8}}</li>
-        <li>{{measure9}} {{ingredient9}}</li>
-        <li>{{measure10}} {{ingredient10}}</li>
-        
+        <li v-if="ingredient1">{{measure1}} {{ingredient1}}</li>
+        <li v-if="ingredient2">{{measure2}} {{ingredient2}}</li>
+        <li v-if="ingredient3">{{measure3}} {{ingredient3}}</li>
+        <li v-if="ingredient4">{{measure4}} {{ingredient4}}</li>
+        <li v-if="ingredient5">{{measure5}} {{ingredient5}}</li>
+        <li v-if="ingredient6">{{measure6}} {{ingredient6}}</li>
+        <li v-if="ingredient7">{{measure7}} {{ingredient7}}</li>
+        <li v-if="ingredient8">{{measure8}} {{ingredient8}}</li>
+        <li v-if="ingredient9">{{measure9}} {{ingredient9}}</li>
+        <li v-if="ingredient10">{{measure10}} {{ingredient10}}</li>
+
         <p>{{instructions}}</p>
     </div>
 </template>
 
 <script>
 export default{
+    // im gonna IMPROOOOOOOVE
     name: "DrinkCard",
     props: {
         drink: Object
