@@ -40,9 +40,7 @@ export default {
     },
 
      async getDrinks(filters){
-        console.log("filters: ", filters)
-        const res = await fetch(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${filters.join(',')}`, this.getOptions())
-        console.log("response from call: ", res) 
+        const res = await fetch(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${filters.join(',')}`, this.getOptions()) 
         const data = await res.json()
         this.drinks =  data.drinks 
     },  
